@@ -1,0 +1,144 @@
+
+
+/* Background colours */
+
+article:nth-child(1), article:nth-child(4) { background: #D9F2EF}
+article:nth-child(2), article:nth-child(5) { background: #B2004D; color: white;}
+article:nth-child(3), article:nth-child(6) { background: #1E2947; color: white;}
+
+article:nth-child(2) h2, article:nth-child(5) h2, article:nth-child(3) h2, article:nth-child(6) h2 { color: white; }
+article:nth-child(2) h3, article:nth-child(5) h3, article:nth-child(3) h3, article:nth-child(6) h3 { color: white; }
+/* Main layout */
+.accordion-bbw {
+  display:flex;
+}
+
+.accordion-bbw-item {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+width: 100%;
+height: 100%;
+min-height: var(--height-accordion);
+box-sizing: border-box;
+}
+
+div + div:hover .accordion-bbw-item {
+width: 16.66666%;
+}
+
+.accordion-bbw-item {
+position: relative;
+flex: 1;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+min-height: var(--height-accordion);
+padding: 2vw;
+box-sizing: border-box;
+overflow: hidden;
+transition: all .35s ease .1s;
+}
+
+.accordion-bbw-item > div {
+opacity: 0;
+transition: opacity .2s ease 0;
+}
+.accordion-bbw-item:hover div {
+max-width: 100%;  
+margin: 0 auto; 
+}
+
+div + div .accordion-bbw-item:hover > div {
+opacity: 1;
+transition: opacity .33s ease .3s;
+}
+.accordion-bbw-item:hover h2 {
+opacity: 0;
+transition: opacity 0.3s ease; /* You can adjust the transition duration as needed */
+}
+
+/* Icons */
+.accordion-bbw-item .accordeon-icon {
+  min-width: 24px;
+}
+.accordion-bbw-item:hover .accordeon-icon {
+  transform: translate(-25%);
+  transition: opacity 0.5s ease; 
+}
+.accordion-bbw-item:hover h3 {
+  transform: translate(72px, -40px);
+  transition: opacity 0.5s ease .2s; 
+} 
+
+/* navigation */
+
+.accordion-bbw-item > h2 {
+bottom: 2vh;
+position: absolute;
+text-align: center;
+width: 100%;
+margin: 0;
+font-size: 2.4vw;
+text-transform: inherit;
+writing-mode: vertical-lr;
+display: flex;
+align-items: center;
+transform: rotate(180deg);
+}
+.accordion-bbw-item div p {
+  width: 30vw
+}
+
+/* Article layouts */
+
+.accordion-bbw-item div {
+text-align: left;
+max-width: 30vw;
+}
+
+.accordion-bbw-item div p, 
+.accordion-bbw-item div div h2, 
+.accordion-bbw-item div h3 { 
+  margin: 0 0 1em 0; 
+  
+}
+h1, h2, h3, h4, h5, h6 { text-transform: uppercase; }
+
+@media (max-width: 900px) {
+div + div .accordion-bbw-item { padding: 2vh 3vw; }
+
+div + div .accordion-bbw-item > h2 {
+  transform: rotate(90deg);
+  bottom: 23vh;
+  min-width: 12em;
+  text-align: left;
+  transform: rotate(-90deg);
+  transform-origin: 0 0 0;
+  opacity: 1;
+}
+
+div + div .accordion-bbw-item:hover > h2 { opacity: 0; }
+
+.accordion-bbw-item div p {width: 505px; text-wrap:balance }
+
+.accordion-bbw-item div {
+  max-height: calc(72%);
+  overflow-y: auto;
+}
+}
+
+/* new hover effect */
+
+.accordion-bbw:hover .accordion-bbw-item:not(:hover) {
+flex: 1;
+height: var(--height-accordion);
+transition: .4s ease .1s;
+}
+
+.accordion-bbw:hover .accordion-bbw-item:hover {
+flex: 40;
+height: auto; 
+}
