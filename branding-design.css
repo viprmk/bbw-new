@@ -15,8 +15,8 @@
 .space-15 {
       height: var(--height-15);
 }
-  .get-in-touch-box {
-	display: flex;
+.get-in-touch-box {
+    display: flex;
     width: 26svw;
     min-width: 360px;
     aspect-ratio: 2 / 1;
