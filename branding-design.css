@@ -136,7 +136,6 @@
 p {
 	font-family: var(--ff-primary)
 }
-
   /* Header on the white page */
   
   .l-header.bg_transparent:not(.sticky) .ush_menu_1.type_desktop .w-nav-item.level_1.current-menu-item>a:not(.w-btn), .l-header.bg_transparent:not(.sticky) .ush_menu_1.type_desktop .w-nav-item.level_1.current-menu-ancestor>a:not(.w-btn), .l-header.bg_transparent:not(.sticky) .ush_menu_1.type_desktop .w-nav-item.level_1.current-page-ancestor>a:not(.w-btn) {
@@ -198,6 +197,7 @@ p {
       gap: 1.5vh 1vh;
       align-items: flex-start;
       max-width: 20vw;
+      width: 15vw;;
   }
   .tags {
       font-size: var(--fs-300);
@@ -258,10 +258,10 @@ p {
       isolation:isolate;
   }
   .block-branding .parallax {
-      width: min(8vw, 260px);
-      aspect-ratio: 1;
-      margin-left: 23vw;
-      z-index:10
+    width: min(13vw,260px);
+	aspect-ratio: 1;
+	margin-left: 24vw;
+	z-index: 10;
   }
   @media (max-width:1024px) {
       .block-branding {
@@ -278,10 +278,10 @@ p {
       left: 1.5vw;
   }
   .block-startup .parallax {
-      width: min(9vw, 260px);
-      aspect-ratio: 1;
-      margin: -2vh 0 4vh 13vw;
-      z-index:10
+    width: min(16vw,260px);
+    aspect-ratio: 1;
+    margin: -2vh 0 2vh 13vw;
+    z-index: 10;
   }
   @media (max-width:1024px) {
       .block-startup {
@@ -298,9 +298,9 @@ p {
       left: -4vw;
   }
   .block-public .parallax {
-      width: 9vw;
+      width: 12vw;
       aspect-ratio: 1;
-      margin: 2.5vh 0 5vh 6vw;
+      margin: 0 0 6vh 6vw;
       z-index:10
   }
   @media (max-width:1380px) {
@@ -323,12 +323,12 @@ p {
       left: -4vw;
       top: 7vh;
   }
-  .block-ux .parallax {
-      width: 10vw;
-      aspect-ratio: 1;
-      margin: 0 0 0 24.5vw;
-      z-index:10
-  }
+ .block-ux .parallax {
+    width: 13vw;
+	aspect-ratio: 1;
+	margin: 0 0 0 22.5vw;
+	z-index: 10;
+}
   @media (max-width:1380px) {
   .block-ux {
       left: 10vw;
@@ -636,7 +636,7 @@ p {
   .parallax:hover {
       transform-origin: left bottom;
       transform: rotateX(8deg) rotateY(8deg) translateZ(0);
-      transform: scale(1.08) translateY(10px);
+      transform: scale(1.09) translateY(10px);
       transition: all 0.8s ease;
   }
   .parallax-xs:hover {
@@ -770,3 +770,173 @@ p {
     opacity: 0;
     transition-delay: 0s;
 }
+
+
+.icon-triangle {
+     scale: 0.75;
+}
+.red-triangle {
+    width:0;
+    height:0;
+    border-bottom:100px solid #AF0A4E; 
+    border-left: 55px solid transparent;
+    border-right:55px solid transparent;
+    animation: 8s linear infinite floating;
+}
+.blue-triangle {width:110px;
+     height:100px;
+     background-image:url('blue-triangle.svg'); 
+     margin:-80px 40px;
+     animation: 8s linear infinite 1s floating;
+}
+    @keyframes floating {
+     0% {transform: translate(0, 0);}
+     10% {transform: translate(-5px, 0);}
+     20% {transform: translate(0, 0);}
+     30% {transform: translate(5px, 5px);}
+     40% {transform: translate(-5px, 5px);}
+     50% {transform: translate(0, 10px);}
+     60% {transform: translate(0, 5px);}
+     70% {transform: translate(5px, 0);}
+     80% {transform: translate(5px, -5px);}
+     90% {transform: translate(0, -5px);}
+     100% {transform: translate(0, 0);}
+    }
+
+.icon-rectangle {
+	scale: 0.75;
+}
+.red-rectangle {
+     width:100px;
+     height:100px;
+     background:#AF0A4E;
+     animation: 8s linear infinite floating;
+}
+.blue-rectangle {
+     width:100px;
+     height:100px;
+     border:4px solid #272846;
+     border-radius:1px;
+     margin:-130px -30px;
+     animation: 8s linear infinite 1s floating;
+}
+
+  .icon-semicircle {
+    scale: 0.75;
+  }
+  .red-semicircle {
+     width: 120px;
+     height: 120px;
+     margin: 0;
+     background:conic-gradient(#AF0A4E 135deg,white 0 315deg,#AF0A4E 0);
+     border-radius: 50%;
+     animation: 8s linear infinite floating;
+  }
+  .blue-semicircle {
+     width:112px;
+     height:112px;
+     background-image:url('/wp-content/themes/Impreza-child/img/svg/blue-semicircle.svg'); 
+     margin:-80px 40px;
+     animation: 8s linear infinite 1s floating;
+  }
+
+  .icon-cross {
+	  scale: 0.75;
+}
+  .red-cross {
+     width:120px;
+     height:120px;
+     background:#AF0A4E;
+     clip-path:polygon(25% 100%, 0 75%, 25% 50%, 0 25%, 25% 0,50% 25%,75% 0,100% 25%,75% 50%, 100% 75%,75% 100%,50% 75%);
+     animation: 8s linear infinite floating;
+  }
+ 
+.blue-cross {
+     width:124px;
+     height:124px;
+     background-image:url('/wp-content/themes/Impreza-child/img/svg/blue-cross.svg');
+	 margin: -150px 0px;
+}
+.icon-triangle {
+     scale: 0.7;
+}
+.red-triangle {
+    width:0;
+    height:0;
+    border-bottom:100px solid #AF0A4E; 
+    border-left: 55px solid transparent;
+    border-right:55px solid transparent;
+    animation: 8s linear infinite floating;
+}
+.blue-triangle {width:110px;
+     height:100px;
+     background-image:url('/wp-content/themes/Impreza-child/img/svg/blue-triangle.svg'); 
+     margin:-80px 40px;
+     animation: 8s linear infinite 1s floating;
+}
+    @keyframes floating {
+     0% {transform: translate(0, 0);}
+     10% {transform: translate(-5px, 0);}
+     20% {transform: translate(0, 0);}
+     30% {transform: translate(5px, 5px);}
+     40% {transform: translate(-5px, 5px);}
+     50% {transform: translate(0, 10px);}
+     60% {transform: translate(0, 5px);}
+     70% {transform: translate(5px, 0);}
+     80% {transform: translate(5px, -5px);}
+     90% {transform: translate(0, -5px);}
+     100% {transform: translate(0, 0);}
+    }
+
+.icon-rectangle {
+     
+}
+.red-rectangle {
+     width:100px;
+     height:100px;
+     background:#AF0A4E;
+     animation: 8s linear infinite floating;
+}
+.blue-rectangle {
+     width:100px;
+     height:100px;
+     border:4px solid #272846;
+     border-radius:1px;
+     margin:-130px -30px;
+     animation: 8s linear infinite 1s floating;
+}
+
+  .icon-semicircle {
+      
+  }
+  .red-semicircle {
+     width: 120px;
+     height: 120px;
+     margin: 0;
+     background:conic-gradient(#AF0A4E 135deg,white 0 315deg,#AF0A4E 0);
+     border-radius: 50%;
+     animation: 8s linear infinite floating;
+  }
+  .blue-semicircle {
+     width:112px;
+     height:112px;
+     background-image:url('/wp-content/themes/Impreza-child/img/svg/blue-semicircle.svg'); 
+     animation: 8s linear infinite 1s floating;
+  }
+
+  .icon-cross {
+ 
+}
+  .red-cross {
+     width:120px;
+     height:120px;
+     background:#AF0A4E;
+     clip-path:polygon(25% 100%, 0 75%, 25% 50%, 0 25%, 25% 0,50% 25%,75% 0,100% 25%,75% 50%, 100% 75%,75% 100%,50% 75%);
+     animation: 8s linear infinite floating;
+  }
+  .blue-cross {
+     width:124px;
+     height:124px;
+     background-image:url('/wp-content/themes/Impreza-child/img/svg/blue-cross.svg'); 
+     animation: 8s linear infinite 1s floating;
+  }
