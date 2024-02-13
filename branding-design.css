@@ -17,6 +17,8 @@
     --fs-300: max(1.6vh, 0.9rem);
     --fs-400: max(1.8vh, 1rem);
     --fs-500: 1.25rem;
+
+    --icon-size: 2.5vw;
       
     --height-1:1vh;
     --height-2:2vh;
@@ -654,18 +656,21 @@ p {
       position: absolute;
   }
   .space-15 {
-      height: var(--height-15);
+    height: var(--height-15);
   }
-  .page-left-block .get-in-touch-box {
-      width: 26vw;
-      min-width: 360px;
-      aspect-ratio: 2 / 1;
-      border: 2px solid var(--clr-green);
-      border-radius: 20px 0 0 20px;
-      order: 3;
-      position: absolute;
-      bottom: 0;
-  }
+.page-left-block .get-in-touch-box {
+    width: 26vw;
+    min-width: 360px;
+    aspect-ratio: 2 / 1;
+    border: 2px solid var(--clr-green);
+    border-radius: 20px 0 0 20px;
+    order: 3;
+    position: absolute;
+    bottom: 0;
+ }
+
+ /* UI UX PAGE */ 
+
 .ux-ui-page--grid  {
     display: grid !important;
     grid-template-columns: repeat(8, 1fr);
@@ -674,13 +679,26 @@ p {
     max-height: 65vh;
 }
 .ui-ux-box {
-      border-radius: 20px 0 0 20px;
-      bottom: 0;
-      padding: 1.5vw;
+    border-radius: 20px 0 0 20px;
+    bottom: 0;
+    padding: 1.5vw;
+    position: relative;
+}
+.ui-ux-box::after {
+    display: inline-flex;
+    content: '';
+    background-image: url('/wp-content/themes/Impreza-child/img/arrow-down-left.svg');
+    height: var(--icon-size);
+    width: var(--icon-size);
+    background-size: var(--icon-size);
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
 }
 .ux-ui--box-title {
     font-size: max( 1.5rem, 2.5vw );
     text-transform: none;
+    line-height: 1.1;
 }
 .webdesign, .are-you-startup {
     grid-area: 1 / 1 / 2 / 5;
@@ -702,7 +720,7 @@ p {
 .get-in-touch-sub-grid .ux-ui--box-title {
     font-family: var(--ff-light);
 }
-.appdesign, .pitch-deck{
+.appdesign, .pitch-deck {
     grid-area: 2 / 3 / 3 / 9; 
     background: var(--clr-blue);
     aspect-ratio: 1 / .4;
@@ -710,7 +728,9 @@ p {
 .appdesign .ux-ui--box-title, .pitch-deck .ux-ui--box-title {
     color: var(--clr-white);
 }
-  
+.appdesign .ui-ux-box::after {
+    color: var(--clr-white)
+}  
 .text-30 {
       font-size: 1.4vw;
       line-height: 1.6;
