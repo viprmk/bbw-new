@@ -119,6 +119,7 @@ class Details {
             translateY: 0,
             opacity: 1
         });
+
     }
 
     close() {
@@ -129,16 +130,9 @@ class Details {
 
         anime({
             targets: this.DOM.close,
-            duration: 250,
+            duration: 150,
             easing: 'easeOutSine',
             translateY: '100%',
-            opacity: 0
-        });
-
-        anime({
-            targets: this.DOM.bgUp,
-            duration: 100,
-            easing: 'linear',
             opacity: 0
         });
 
@@ -152,7 +146,7 @@ class Details {
         const rect = this.getProductDetailsRect();
         anime({
             targets: [this.DOM.bgDown, this.DOM.video],
-            duration: 250,
+            duration: 150,
             easing: 'easeOutSine',
             translateX: (target, index) => {
                 return index ? rect.productVideoRect.left - rect.detailsVideoRect.left : rect.productBgRect.left - rect.detailsBgRect.left;
@@ -218,3 +212,4 @@ DOM.content = DOM.grid.parentNode;
 DOM.gridItems = Array.from(DOM.grid.querySelectorAll('.ui-ux-box'));
 let items = [];
 DOM.gridItems.forEach(item => items.push(new Item(item)));
+
