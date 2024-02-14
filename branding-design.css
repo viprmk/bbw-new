@@ -774,10 +774,12 @@ p {
     position: absolute;
     border-radius: inherit;
     opacity: 0;
+    transform: translateZ(0) !important;
 }
 .video-container:hover {
     opacity: 1;
     transition: .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transform: translateZ(0) !important;
 }
 
 .video-container video {
@@ -787,6 +789,7 @@ p {
   object-fit: cover;
   z-index: 0;
   border-radius: 20px 20px 0 20px;
+  transform: translateZ(0) !important;
 }
 
 /* Just styling the content of the div, the *magic* in the previous rules */
@@ -798,18 +801,28 @@ p {
   padding: 10px;
 }
 
-
-    /*Курсор */
-
- .ui-ux-box:hover {
-       cursor:url(/wp-content/themes/Impreza-child/img/svg/Open.svg), auto !important;
-   transition: all .2s ease;
-  }
-  .details__vid:hover {
-    cursor:url(/wp-content/themes/Impreza-child/img/svg/Close.svg), auto !important;
-transition: all .2s ease;
+body  {
+    transform: translateZ(0) !important;
 }
-  
+
+/* Курсор */
+
+.video-container:hover,
+.video-container:hover * {
+    cursor: url(/wp-content/themes/Impreza-child/img/open.svg), auto !important;
+    transition: all 0.45s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+.details:hover,
+.details:hover * {
+    cursor: url(/wp-content/themes/Impreza-child/img/close.svg), auto !important;
+    transition: all 0.45s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transform: translateZ(0);
+    will-change: transform;
+}
+
   /* Цю частину можна прибрати як тільки зрозумієш чому вона стала проблемою раптом */
  
           @media screen {
@@ -1097,17 +1110,18 @@ transition: all .2s ease;
 }
 
 .details {
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	bottom: 0;
-	left: 0;
-	padding: 40vh 0 10vh 10vw;
-	z-index: 100;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	pointer-events: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    /* padding: 40vh 0 10vh 10vw; */
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    pointer-events: none;
+    overflow: hidden;
 }
 
 .details--open {
@@ -1143,6 +1157,7 @@ transition: all .2s ease;
 	left: 0;
 	height: 100vh;
 	width: 100vw;
+    object-fit: cover;
 }
 
 .details__bg,
@@ -1151,6 +1166,7 @@ transition: all .2s ease;
 }
 
 .details__title {
+    display: none;
 	margin: -1.5em 0 0.1em;
 	font-size: 4.5em;
 	color: var(--clr-white);
@@ -1159,13 +1175,11 @@ transition: all .2s ease;
 
 .details__close {
 	position: absolute;
-	top: 15vh;
+	top: 0;
 	right: 0;
 	border: 0;
 	background: none;
-	margin: 2em;
-	cursor: pointer;
-	font-size: 0.85em;
+	font-size: 2.85em;
 	color: transparent;
     width: 100vw;
     height: 100vh;
