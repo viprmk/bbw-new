@@ -68,7 +68,69 @@
       src: url(/wp-content/themes/Impreza-child/fonts/Outfit-Light.woff) format("woff")
   }
   
+/* Cursor settings */
+
+  body {
+    perspective: 1px;
+    cursor: none;
+   }
+
+
+   .cursor-dot,
+   .cursor-outline {
+       position: fixed;
+       top: 0;
+       left: 0;
+       transform: translate(-50%, -50%);
+       border-radius: 50%;
+       z-index: 1;
+       pointer-events: none;
+   }
+   
+   .cursor-dot {
+       width: 8px;
+       height: 8px;
+       background-color: hsla(332, 100%, 56%, 1);
+       mix-blend-mode: hard-light; 
+   }
+   
+   .cursor-outline {
+       width: 30px;
+       height: 30px;
+       border: 2px solid hsla(332, 100%, 56%, 0.33);
+       mix-blend-mode: hard-light; 
+   }
+   
+   .video-container.cursor-hidden .cursor-dot,
+   .video-container.cursor-hidden .cursor-outline,
+   .ux-ui--box-title.cursor-hidden .cursor-dot,
+   .ux-ui--box-title.cursor-hidden .cursor-outline {
+       opacity: 0;
+       pointer-events: none;
+   }
+
+.video-container:hover,
+.video-container:hover * {
+    cursor: url(/wp-content/themes/Impreza-child/img/open.svg), auto !important;
+    transition: all 0.45s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+.details:hover,
+.details:hover * {
+    cursor: url(/wp-content/themes/Impreza-child/img/close.svg), auto !important;
+    transition: all 0.45s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transform: translateZ(0);
+    will-change: transform;
+}
+    @media (any-pointer:fine)
+        .cursor__inner {
+            fill: var(--cursor-fill);
+}
+   
   /* Header */
+
   .header_hor .ush_menu_1.type_desktop .menu-item.level_1>a:not(.w-btn) {
       padding-left: 12px !important;
       padding-right: 12px !important;
@@ -86,7 +148,7 @@
       overflow: hidden;
   } 
   .w-nav-item:hover {
-      background: var(--clr-red);
+      background: var(--clr-green);
       border:1px solid transparent;
       transition: 0.4s ease-in-out 0.15s;
 	  transition-timing-function: cubic-bezier(.98,0,.22,.98), ease-in-out;
@@ -95,16 +157,29 @@
 .no-touch .l-subheader.at_middle a:hover, .no-touch .l-header.bg_transparent .l-subheader.at_middle .w-dropdown.opened a:hover {
 	color: var(--clr-white) !important;
 }
+.ush_menu_1 .w-nav-item.level_1>a:not(.w-btn):focus, .no-touch .ush_menu_1 .w-nav-item.level_1.opened>a:not(.w-btn), .no-touch .ush_menu_1 .w-nav-item.level_1:hover>a:not(.w-btn) {
+    background: var(--clr-green);
+    color:var(--clr-blue) !important
+ }
+ .ush_menu_1 .w-nav-item.level_1.current-menu-item>a:not(.w-btn), .ush_menu_1 .w-nav-item.level_1.current-menu-ancestor>a:not(.w-btn), .ush_menu_1 .w-nav-item.level_1.current-page-ancestor>a:not(.w-btn) {
+    background: var(--clr-green);
+    color:var(--clr-blue) !important
+}
+ush_menu_1 .w-nav-item.level_1>a:not(.w-btn):focus, .no-touch .ush_menu_1 .w-nav-item.level_1.opened>a:not(.w-btn), .no-touch .ush_menu_1 .w-nav-item.level_1:hover>a:not(.w-btn) {
+    background: var(--clr-green) !important;
+    color:var(--clr-blue) !important
+ }
   .w-nav-item:nth-child(5), .w-nav-item:nth-child(6) {
       border: none;
+      background: unset;
   }
-  .w-nav-item:nth-child(5):hover, .w-nav-item:nth-child(6):hover {
+  .no-touch .ush_menu_1 .w-nav-item:nth-child(5).level_1:hover>a:not(.w-btn), .no-touch .ush_menu_1 .w-nav-item:nth-child(6).level_1:hover>a:not(.w-btn)  {
       text-decoration: underline;
-      background: none;
+      background: unset;
   }
 .current_page_item {
-    border: 1px solid var(--clr-red) !important;
-    background: var(--clr-red);
+    border: 1px solid var(--clr-green) !important;
+    background: var(--clr-green);
 }
   @media (min-width: 1025px) and (max-width: 1380px) {
     .l-subheader.at_middle {
@@ -153,7 +228,7 @@ p {
       background-color: var(--clr-white);
   } 
   .id_82 .w-nav-item:hover {
-      background: var(--clr-red);
+      background: var(--clr-green);
       transition: 0.4s ease-in-out;
 	  transition-timing-function: cubic-bezier(.98,0,.22,.98), ease-in-out;
   }
@@ -446,7 +521,7 @@ p {
   }
   
   .accordion-bbw-item:nth-child(2),.accordion-bbw-item:nth-child(5) {
-      background: #B2004D;
+      background: var(--clr-red);
       color: var(--clr-white);
   }
   
@@ -627,9 +702,6 @@ p {
   
   /* Paralax */
   
-  body {
-   perspective: 1px;
-  }
   .parallax, .parallax-xs {
       transition: .3s ease-out;
   }
@@ -791,6 +863,9 @@ p {
   border-radius: 20px 20px 0 20px;
   transform: translateZ(0) !important;
 }
+.video-container video:hover {
+    filter: blur(0.12px)
+  }
 
 /* Just styling the content of the div, the *magic* in the previous rules */
 .video-container .caption {
@@ -801,27 +876,7 @@ p {
   padding: 10px;
 }
 
-body  {
-    transform: translateZ(0) !important;
-}
 
-/* Курсор */
-
-.video-container:hover,
-.video-container:hover * {
-    cursor: url(/wp-content/themes/Impreza-child/img/open.svg), auto !important;
-    transition: all 0.45s cubic-bezier(0.075, 0.82, 0.165, 1);
-    transform: translateZ(0);
-    will-change: transform;
-}
-
-.details:hover,
-.details:hover * {
-    cursor: url(/wp-content/themes/Impreza-child/img/close.svg), auto !important;
-    transition: all 0.45s cubic-bezier(0.075, 0.82, 0.165, 1);
-    transform: translateZ(0);
-    will-change: transform;
-}
 
   /* Цю частину можна прибрати як тільки зрозумієш чому вона стала проблемою раптом */
  
@@ -1104,7 +1159,6 @@ body  {
 	transform: translate3d(-50%,0,0);
 }
 
-
 .product:hover {
 	color: var(--clr-red);
 }
@@ -1227,3 +1281,5 @@ body  {
 		right: -12vh;
 	}
 }
+
+
