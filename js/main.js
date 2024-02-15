@@ -71,14 +71,11 @@ class Details {
 
         const rect = this.getProductDetailsRect();
 
-        this.DOM.bgDown.style.transform = `translateX(${rect.productBgRect.left - rect.detailsBgRect.left}px) translateY(${rect.productBgRect.top - rect.detailsBgRect.top}px) scaleX(${rect.productBgRect.width / rect.detailsBgRect.width}) scaleY(${rect.productBgRect.height / rect.detailsBgRect.height})`;
-        this.DOM.bgDown.style.opacity = 1;
-
         this.DOM.video.style.transform = `translateX(${rect.productVideoRect.left - rect.detailsVideoRect.left}px) translateY(${rect.productVideoRect.top - rect.detailsVideoRect.top}px) scaleX(${rect.productVideoRect.width / rect.detailsVideoRect.width}) scaleY(${rect.productVideoRect.height / rect.detailsVideoRect.height})`;
         this.DOM.video.style.opacity = 1;
 
         anime({
-            targets: [this.DOM.bgDown, this.DOM.video],
+            targets: [this.DOM.video],
             duration: (target, index) => index ? 200 : 250,
             easing: (target, index) => index ? 'easeOutElastic' : 'easeOutSine',
             elasticity: 250,
@@ -171,8 +168,6 @@ class Details {
             }
         });
     }
-
-    // ... (unchanged code)
 }
 
 class Item {
@@ -183,11 +178,17 @@ class Item {
         this.DOM.productBg = this.DOM.product.querySelector('.product__bg');
         this.DOM.productVideo = this.DOM.product.querySelector('.vid');
 
-        this.info = {
-            video: this.DOM.productVideo.src,
-            title: this.DOM.product.querySelector('.ux-ui--box-title').innerHTML,
-            videoSrc: this.DOM.productVideo.getAttribute('data-video-src')
-        };
+        if (this.DOM.productVideo) {
+            this.info = {
+              video: this.DOM.productVideo.src,
+              title: this.DOM.product.querySelector('.ux-ui--box-title').innerHTML,
+              videoSrc: this.DOM.productVideo.getAttribute('data-video-src')
+            };
+          } else {
+            this.info = {
+              title: this.DOM.product.querySelector('.ux-ui--box-title').innerHTML
+            };
+          }
 
         this.initEvents();
     }
@@ -212,4 +213,3 @@ DOM.content = DOM.grid.parentNode;
 DOM.gridItems = Array.from(DOM.grid.querySelectorAll('.ui-ux-box'));
 let items = [];
 DOM.gridItems.forEach(item => items.push(new Item(item)));
-
