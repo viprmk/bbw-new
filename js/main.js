@@ -1,5 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
-    class Details {
+class Details {
     constructor() {
         this.DOM = {};
 
@@ -201,22 +200,15 @@ class Item {
         const details = new Details();
         details.fill(this.info);
         details.open({
-          productBg: this.DOM.productBg,
-          productVideo: this.DOM.productVideo
+            productBg: this.DOM.productBg,
+            productVideo: this.DOM.productVideo
         });
     }
 }
 
 const DOM = {};
-  DOM.grid = document.querySelector('.ux-ui-page--grid');
-  DOM.content = DOM.grid.parentNode;
-  DOM.gridItems = Array.from(DOM.grid.querySelectorAll('.ui-ux-box'));
-  let items = [];
-  DOM.gridItems.forEach(item => {
-    const el = item;
-    el.addEventListener('click', () => {
-      const item = new Item(el);
-      item.open();
-    });
-});
-});
+DOM.grid = document.querySelector('.ux-ui-page--grid');
+DOM.content = DOM.grid.parentNode;
+DOM.gridItems = Array.from(DOM.grid.querySelectorAll('.ui-ux-box'));
+let items = [];
+DOM.gridItems.forEach(item => items.push(new Item(item)));
