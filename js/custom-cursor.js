@@ -21,6 +21,7 @@ document.querySelectorAll(".video-container, .details--open").forEach(element =>
         cursorDot.style.color = "white";
         cursorDot.style.zIndex = "9999";
         cursorOutline.style.zIndex = "9998"; 
+        cursorOutline.style.display = "block";
         cursorOutline.style.border = "2px solid transparent";
         cursorDot.style.backgroundColor = "hsla(340, 74%, 40%, 1)";
         if (element.classList.contains("video-container")) {
